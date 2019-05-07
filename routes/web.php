@@ -17,6 +17,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/managegame', function () {
+    return view('admin.managgame');
+});
 
 Auth::routes();
 
@@ -31,5 +34,6 @@ Route::get('/login', 'admincontroller@index')->name('login');
 Route::get('/register', 'admincontroller@regis')->name('register');
 Route::get('/user', 'usercontroller@userreg')->name('userreg');
 Route::resource('user', 'usercontroller');
+Route::get('/home', 'usercontroller@index')->name('home');
 Route::get('/home', 'usercontroller@index')->name('home');
 Route::post('/log-in', 'usercontroller@signin')->name('sign-in');

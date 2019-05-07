@@ -36,7 +36,7 @@ class usercontroller extends Controller
         ->where(['username'=>$username,'password'=>$password])
         ->get();
         if(count($check)>0){
-            return view('/dashboard')->with('alert-success','Login Sukses !');
+            return view('admin.dashboard');
         }
         else{
             return view('login_page.login_admin');

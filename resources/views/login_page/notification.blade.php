@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('judul','Notif')
+@section('judultab','Notif')
 
 @section('content')
     <h4 style="text-align:center">User berhasil melakukan register</h4>

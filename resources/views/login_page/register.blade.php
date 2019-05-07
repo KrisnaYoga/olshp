@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('judul','Register User')
+@section('judultab','Register User')
 
 @section('content')
 <div class="container">
@@ -52,18 +52,6 @@
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="user_role" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
-                            <div class="col-md-6">
-                                <select name="user_role" id="user_role" class="form-control bmd-label-floating" required>
-                                    <option disabled selected>Sebagai ...</option>
-                                    <option value="pembeli">Pembeli</option>
-                                    <option value="penjual">Penjual</option>
-                                </select>
-
                             </div>
                         </div>
 
