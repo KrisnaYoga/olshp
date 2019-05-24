@@ -11,29 +11,26 @@
 |
 */
 
-//Route::get('/', 'Controller@index')->name('home');
-//Route::resource('admin','admincontroller');
-
 Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/managegame', function () {
-    return view('admin.managgame');
 });
 
 Auth::routes();
 
-/*
-// Ujicoba Layout
-Route::get('ujicoba', function(){
-    return view('layouts.app');
-});
-*/
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/login', 'admincontroller@index')->name('login');
-Route::get('/register', 'admincontroller@regis')->name('register');
-Route::get('/user', 'usercontroller@userreg')->name('userreg');
-Route::resource('user', 'usercontroller');
-Route::get('/home', 'usercontroller@index')->name('home');
-Route::get('/home', 'usercontroller@index')->name('home');
-Route::post('/log-in', 'usercontroller@signin')->name('sign-in');
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'AuthAdmin\LoginController@login')->name('admin.login.submit');
+    Route::get('/', 'AdminController@index')->name('admin.home');
+
+    Route::resource('/category','ProductCategoryController');
+    Route::resource('/courier','CouriersController');
+    /* sudah mau */
+    Route::get('/courier/update/{id}', 'CouriersController@update');
+    Route::get('/category/update/{id}', 'ProductCategoryController@update');
+    /* sudah mau */
+    Route::delete('/courier/{id}', 'CouriersController@destroy')->name('courier.destroy');
+    Route::delete('/category/{id}', 'ProductCategoryController@destroy')->name('category.destroy');
+});
+

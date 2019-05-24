@@ -1,4 +1,4 @@
-@extends('admin.lay_dash')
+@extends('layouts.app1')
 @section('title','Dashboard')
 @section('content')
     <div class="col-sm-12">
