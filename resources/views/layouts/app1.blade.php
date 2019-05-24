@@ -98,7 +98,7 @@
 
                                 <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                                <form action="{{ route('logout') }}">
+                                <form action="{{ route('admin.logout') }}">
                                 <button type="submit"><a class="nav-link" href=""><i class="fa fa-power-off"></i> Logout</a></button>
                                 </form>
                             </div>
